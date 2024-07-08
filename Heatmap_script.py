@@ -18,11 +18,16 @@ clean_data.index.name = None
 # Convert the data to numeric type
 clean_data = clean_data.apply(pd.to_numeric, errors='coerce')
 
-# Generate a heatmap
-plt.figure(figsize=(10, 8))
+# Generate a heatmap with a rectangular shape
+plt.figure(figsize=(14, 6))  # Adjusting the size to be more rectangular
 sns.heatmap(clean_data, annot=True, cmap='coolwarm', center=0, cbar=True, xticklabels=clean_data.columns, yticklabels=clean_data.index)
 plt.title('Netflix Recommendation Engine')
 plt.xticks(rotation=45, ha='right')
 plt.yticks(rotation=0)
 plt.tight_layout()
+
+# Save the plot as a PNG file
+plt.savefig('Netflix_Recommendation_Engine_Rectangular.png')
+
+# Display the plot
 plt.show()
